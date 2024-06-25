@@ -3,7 +3,7 @@ import Book from '../Book'
 import './index.css'
 
 class Home extends Component {
-    state = {books: []}
+    state = {books: [], searchInput : ''}
     componentDidMount() {
         this.callingApi()
     }
@@ -28,15 +28,28 @@ class Home extends Component {
         
     }
 
+    searchingBook = () => {
+        const {books, searchInput} = this.state
+        const filteredData = books.filter(oneBook => (
+            oneBook.title.includes(searchInput)
+        ))
+        console.log(filteredData)
+        this.setState({books: filteredData})
+    }
+
+    searchInput = event => {
+        this.setState({searchInput: event.target.value})
+    }
+
     render(){
-        const {books} = this.state
+        const {books, searchInput} = this.state
         return(
             <div>
                 <h1>Books</h1>
                 <div>
                 <div>
-                <input type='search' />
-                <button>Search</button>
+                <input onChange={this.searchInput} value={searchInput} type='search' />
+                <button onClick={this.searchingBook}>Search</button>
                 </div>
                 <div className='books-page'>
                     
