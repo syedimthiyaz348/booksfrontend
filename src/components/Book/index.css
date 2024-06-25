@@ -1,0 +1,32 @@
+.book-container{
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    height: 280px;
+    border: 2px solid grey;
+    font-size: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+.image-data{
+    display: flex;
+    gap: 30px;
+}
+.book-image{
+    height: 150px;
+    width: 150px;
+    align-self: center;
+}
+.view-link{
+    align-self: flex-end;
+    justify-self: flex-start;
+}
+*{
+    box-sizing: border-box;
+}
+
+.book-container h1{
+    font-size: 12px;
+}
